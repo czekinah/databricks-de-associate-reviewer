@@ -549,10 +549,16 @@ const TIPS = [
     "Log in 15 minutes early.",
     "No notes or aids are allowed, including a second screen."
   ]},
+  { title: "When it feels like too much", items: [
+    "Pick the smallest next step: one flashcard deck or one section quiz. Starting is the hard part.",
+    "Compare yourself with where you were last week, not with your classmates.",
+    "A good night of sleep before the exam does more than one more late night of review.",
+    "Ask the batch. Someone else is stuck on the same topic, and explaining it helps both of you."
+  ]},
   { title: "After the exam", items: [
     "You see an unofficial result right away. For a pass, Databricks reviews the proctor recording before the badge is issued.",
     "The badge arrives by email from Accredible and shows up at credentials.databricks.com.",
-    "If it does not go your way, you can retake after 14 days. Use the section breakdown to decide what to study.",
+    "If it does not go your way, you can retake after 14 days. The section breakdown shows you exactly what to study, and you will already know the format.",
     "The certification is valid for 2 years."
   ]}
 ];

@@ -45,7 +45,7 @@ function mascot(mood){
 const LEVELS = [[0,"Stray Kitten"],[200,"Curious Kitten"],[600,"Alley Cat"],[1200,"House Cat"],[2000,"Lakehouse Tabby"],[3200,"Delta Tomcat"],[4800,"Unity Lion"]];
 const BADGES = [
   ["first_pounce","First Pounce","Answer your first question right","#5DFF87"],
-  ["curious","Curiosity Unlocked","Open the study notes for all 7 sections","#4A82FF"],
+  ["curious","Curious Cat","Open the study notes for all 7 sections","#4A82FF"],
   ["whisker","Whisker Wise","Know every flashcard in one section","#2BE3DF"],
   ["nine_lives","Nine Lives","Get 9 questions right in a row","#FFC61A"],
   ["clean_sweep","Clean Sweep","Score 100% on a section quiz","#A98BFF"],
@@ -85,7 +85,7 @@ function award(xp, why, at){
 function unlock(id){
   if (state.badges[id]) return;
   state.badges[id] = todayISO(); save();
-  const b = BADGES.find(x => x[0] === id); toast("Badge unlocked: " + b[1]);
+  const b = BADGES.find(x => x[0] === id); toast("New badge: " + b[1]);
   pawBurst(innerWidth/2, innerHeight - 90);
 }
 function checkBadges(){
@@ -110,7 +110,17 @@ function renderHud(){
   const pct = next ? ((state.xp - cur[0]) / (next[0] - cur[0]) * 100) : 100;
   const dte = daysToExam();
   const badgeN = Object.keys(state.badges).length;
-  const defaultLine = dte > 0 ? `${dte} days to exam day. One section at a time.` : dte === 0 ? "Exam day. You have got this." : "Exam day has passed. Keep the streak for recertification.";
+  const CHEER = [
+    "One section today is enough.",
+    "Every question you miss here is one less surprise on exam day.",
+    "Slow progress is still progress.",
+    "You do not need to know everything. Just a little more than yesterday.",
+    "Nobody in the batch is studying alone.",
+    "Rest counts too. Come back tomorrow.",
+    "Pin a note on the wall if today was hard. Someone will read it."
+  ];
+  const cheer = CHEER[new Date().getDate() % CHEER.length];
+  const defaultLine = dte > 0 ? `${dte} days to exam day. ${cheer}` : dte === 0 ? "Exam day. Breathe, read each question twice, and trust what you studied." : "Exam day is behind us. Whatever the result, you learned a lot. Keep going.";
   $("#hud").innerHTML = `${mascot(mood)}
     <div class="hud-main">
       <div class="rank-row"><span class="rank">${esc(cur[1])}</span><span class="mono small soft">level ${i+1} of ${LEVELS.length}${next ? `  |  ${next[0] - state.xp} XP to ${esc(next[1])}` : "  |  max level"}</span></div>
@@ -148,6 +158,11 @@ const ring = p => { const c = 2 * Math.PI * 24; return `<svg class="ring" viewBo
 RENDER.home = function(){
   const dte = daysToExam();
   $("#p-home").innerHTML = `
+    <div class="card" style="display:grid;gap:8px">
+      <div class="eyebrow">A note before you start</div>
+      <p style="max-width:70ch">I made this for our FTW batch because studying for a certification alone is hard. You do not have to do it that way. Pick one section a day, check off the calendar, and pin a note on the wall when you need a push or have one to give. We will walk into October 17 together.</p>
+      <p class="mono small" style="color:var(--accent-deep)">Kinah</p>
+    </div>
     <div class="card" style="display:grid;gap:10px">
       <div class="eyebrow">The exam</div>
       <h2>Databricks Certified Data Engineer Associate</h2>
@@ -300,7 +315,7 @@ RENDER.cards = function(){
         </button>
         <div class="row" style="justify-content:center"><button class="btn ghost" id="again">again</button><button class="btn" id="gotit">got it</button></div>
         <div class="soft small mono">card ${deckPos+1} of ${deck.length}</div>`
-      : `<div class="card" style="width:min(640px,100%);text-align:center;display:grid;gap:10px;justify-items:center">${mascot("happy")}<h3>Deck finished</h3><p class="soft small">Shuffle to go again, or turn off the filter to see every card.</p><button class="btn" id="restart">start again</button></div>`}
+      : `<div class="card" style="width:min(640px,100%);text-align:center;display:grid;gap:10px;justify-items:center">${mascot("happy")}<h3>Deck finished. Nice work.</h3><p class="soft small">Shuffle to go again, or turn off the filter to see every card.</p><button class="btn" id="restart">start again</button></div>`}
     </div>`;
   $("#cardChips").onclick = e => { const b = e.target.closest(".chip"); if (b) { cardFilter = b.dataset.s; resetDeck(); RENDER.cards(); } };
   $("#onlyUnknown").onchange = e => { onlyUnknown = e.target.checked; resetDeck(); RENDER.cards(); };
@@ -372,7 +387,7 @@ function finishQuiz(){
   if (quiz.mode === "mock" && quiz.answers.length) state.mockBest = Math.max(state.mockBest || 0, pct);
   if (quiz.mode === "section" && quiz.answers.length === total) state.secBest[quiz.sec] = Math.max(state.secBest[quiz.sec] || 0, pct);
   save(); checkBadges();
-  setMood(pct >= 80 ? "happy" : "idle", pct >= 80 ? `${pct}%. That is a pass-level run.` : `${pct}%. Review the misses, then go again.`);
+  setMood(pct >= 80 ? "happy" : "idle", pct >= 80 ? `${pct}%. That is the level you want on exam day. Keep it there.` : `${pct}%. Each miss shows you what to look at next. Review them, then try again.`);
   if (state.tab === "quiz") RENDER.quiz();
 }
 RENDER.quiz = function(){
@@ -431,7 +446,7 @@ RENDER.notes = function(){
     <div class="card" style="display:grid;gap:10px">
       <div class="eyebrow">Encouragement wall</div>
       <h2>Pin a note for the batch</h2>
-      <p class="soft" style="max-width:70ch">Leave a note for your classmates: your exam date, a tip that helped, or just a push to keep going. Notes are comments on one GitHub issue, so you need a GitHub account to pin one. Everyone can read them here.</p>
+      <p class="soft" style="max-width:70ch">Leave a note for your classmates: your exam date, a tip that helped, or a few words for someone having a hard week. Reading one on a tired night helps more than you think. Notes are comments on one GitHub issue, so you need a GitHub account to pin one. Everyone can read them here.</p>
       <div class="row"><a class="btn" href="${NOTES_URL}#new_comment_field" target="_blank" rel="noopener">pin a note on GitHub</a><button class="btn ghost" id="refreshNotes">refresh wall</button></div>
       <p class="soft small">Keep it kind and about the exam. The repo owner can remove notes that are not.</p>
     </div>
@@ -448,7 +463,7 @@ async function loadNotes(){
       notesCache = await r.json();
     }
     const notes = notesCache.slice().reverse();
-    if (!notes.length) { wall.innerHTML = `<div class="card" style="grid-column:1/-1;text-align:center;display:grid;gap:8px;justify-items:center">${mascot("idle")}<h3>The wall is empty</h3><p class="soft small">Be the first to pin a note.</p></div>`; return; }
+    if (!notes.length) { wall.innerHTML = `<div class="card" style="grid-column:1/-1;text-align:center;display:grid;gap:8px;justify-items:center">${mascot("idle")}<h3>The wall is empty for now</h3><p class="soft small">Be the first to pin a note. It can be one line.</p></div>`; return; }
     const tilt = [-2, 1.5, -1, 2, -1.5, 1];
     wall.innerHTML = notes.map((n, k) => `
       <article class="note" style="--tilt:${tilt[k % tilt.length]}deg">

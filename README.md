@@ -2,6 +2,8 @@
 
 A free reviewer for the **Databricks Certified Data Engineer Associate** exam, made for my FTW Foundation batch. Our exam day is October 17, 2026.
 
+I made it because studying for a certification alone is hard. Use it, share it, and add to it.
+
 Live: https://czekinah.github.io/databricks-de-associate-reviewer/
 
 ## What's inside
@@ -13,7 +15,7 @@ Live: https://czekinah.github.io/databricks-de-associate-reviewer/
 - Exam tips: booking, studying, exam day, and what happens after
 - A table of renamed Databricks products, since a lot of older mock exams still use the old names
 - A hands-on checklist for Databricks Free Edition
-- XP, cat ranks and badges, so reviewing feels less like a chore
+- XP, cat ranks and badges, so a little studying every day adds up to something you can see
 
 Your progress stays in your own browser. There are no accounts and no tracking.
 
