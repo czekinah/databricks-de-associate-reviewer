@@ -18,8 +18,14 @@
       <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 24 L15 5 L28 17 Z M54 24 L49 5 L36 17 Z" fill="var(--accent)"/><circle cx="32" cy="37" r="23" fill="var(--accent)"/><circle cx="23" cy="35" r="3.6" fill="var(--bg)"/><circle cx="41" cy="35" r="3.6" fill="var(--bg)"/><path d="M29 43 L35 43 L32 46 Z" fill="var(--pop)"/></svg>
       <div><div class="brand-name">ROAD TO PURR-FECTION</div><small>// the Databricks DE Associate reviewer for FTW. nine lives, one exam.</small></div>
     </div>
+    <div class="controls">
+    <div class="lofi">
+      <button class="lofi-btn" id="lofiBtn" aria-pressed="false" aria-label="Turn lofi study music on or off"><span class="eq" aria-hidden="true"><i></i><i></i><i></i></span><span id="lofiLabel">lofi: off</span></button>
+      <label class="lofi-vol"><span class="sr">Music volume</span><input type="range" id="lofiVol" min="0" max="1" step="0.05" value="0.5"></label>
+    </div>
     <div class="toggle"><span id="modeLabel">render_mode: data-engineer</span>
       <button class="switch" id="switch" aria-label="Switch between data mode and writer mode"><span class="knob"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 24 L15 5 L28 17 Z M54 24 L49 5 L36 17 Z" fill="var(--accent-deep)"/><circle cx="32" cy="37" r="23" fill="var(--accent-deep)"/></svg></span></button>
+    </div>
     </div>
   </header>
 
@@ -40,5 +46,6 @@
 <div id="toast" aria-live="polite"></div>
 <script src="content.js"></script>
 <script src="app.js"></script>
+<script src="lofi.js"></script>
 </body>
 </html>

@@ -15,6 +15,7 @@ Live: https://czekinah.github.io/databricks-de-associate-reviewer/
 - Exam tips: booking, studying, exam day, and what happens after
 - A table of renamed Databricks products, since a lot of older mock exams still use the old names
 - A hands-on checklist for Databricks Free Edition
+- A lofi study radio you can switch on and off. The music is generated in your browser, so there are no audio files
 - XP, cat ranks and badges, so a little studying every day adds up to something you can see
 
 Your progress stays in your own browser. There are no accounts and no tracking.
