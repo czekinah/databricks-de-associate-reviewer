@@ -1,4 +1,4 @@
-// Purr-view content. Everything the site shows lives in this file.
+// Road to Purr-fection content. Everything the site shows lives in this file.
 // To add a flashcard or a question, see CONTRIBUTING.md.
 // Sources: the official Associate exam guide (May 2026) and the Databricks docs.
 
