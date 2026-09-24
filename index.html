@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Databricks Associate Reviewer</title>
+<meta name="description" content="Purr-view: a free, gamified reviewer for the Databricks Certified Data Engineer Associate exam, made for the FTW Foundation community.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M10 22 L16 4 L28 16 Z M54 22 L48 4 L36 16 Z' fill='%232BE3DF'/%3E%3Ccircle cx='32' cy='36' r='24' fill='%232BE3DF'/%3E%3Ccircle cx='23' cy='34' r='4' fill='%230A1120'/%3E%3Ccircle cx='41' cy='34' r='4' fill='%230A1120'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Baloo+2:wght@400..800&family=JetBrains+Mono:wght@400..800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 24 L15 5 L28 17 Z M54 24 L49 5 L36 17 Z" fill="var(--accent)"/><circle cx="32" cy="37" r="23" fill="var(--accent)"/><circle cx="23" cy="35" r="3.6" fill="var(--bg)"/><circle cx="41" cy="35" r="3.6" fill="var(--bg)"/><path d="M29 43 L35 43 L32 46 Z" fill="var(--pop)"/></svg>
+      <div><div class="brand-name">PURR-VIEW</div><small>// Databricks Certified Data Engineer Associate reviewer, made for FTW</small></div>
+    </div>
+    <div class="toggle"><span id="modeLabel">render_mode: data-engineer</span>
+      <button class="switch" id="switch" aria-label="Switch between data mode and writer mode"><span class="knob"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 24 L15 5 L28 17 Z M54 24 L49 5 L36 17 Z" fill="var(--accent-deep)"/><circle cx="32" cy="37" r="23" fill="var(--accent-deep)"/></svg></span></button>
+    </div>
+  </header>
+
+  <div class="hud" id="hud"></div>
+
+  <nav class="tabs" aria-label="Reviewer sections">
+    <div class="tabrow" role="tablist" id="tabs"></div>
+  </nav>
+
+  <main id="panels"></main>
+
+  <footer>
+    <span>Built from the official Associate exam guide (May 2026) and the Databricks docs. Recheck the guide two weeks before your exam.</span>
+    <span>Your XP, badges and progress live only in your browser. No accounts, no tracking.</span>
+    <span id="footLinks"></span>
+  </footer>
+</div>
+<div id="toast" aria-live="polite"></div>
+<script src="content.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
