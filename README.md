@@ -9,8 +9,8 @@ Live: https://czekinah.github.io/databricks-de-associate-reviewer/
 ## What's inside
 
 - Study notes for all 7 exam sections, weighted like the official exam guide
-- 60 flashcards and 65 practice questions with explanations
-- A timed 45 question mock exam, a fast 30 second mode, and quizzes by section
+- 60 flashcards and 91 practice questions with explanations, all written from the exam guide and the Databricks docs
+- A timed 45 question mock exam that can run twice without repeating a question, a fast 30 second mode, and quizzes by section
 - A study calendar that counts down to exam day
 - Exam tips: booking, studying, exam day, and what happens after
 - A table of renamed Databricks products, since a lot of older mock exams still use the old names
@@ -30,6 +30,6 @@ Found a wrong answer, an outdated name, or have a good question? Open an issue o
 
 ## Sources
 
-Everything is checked against the [official Associate exam guide](https://www.databricks.com/sites/default/files/2026-05/databricks-certified-data-engineer-associate-exam-guide-may-2026-000.pdf), the [certification page](https://www.databricks.com/learn/certification/data-engineer-associate) and the Databricks docs. These are practice questions, not real exam questions. Recheck the exam guide two weeks before your exam in case it changes.
+Everything is checked against the [official Associate exam guide](https://www.databricks.com/sites/default/files/2026-05/databricks-certified-data-engineer-associate-exam-guide-may-2026-000.pdf), the [certification page](https://www.databricks.com/learn/certification/data-engineer-associate) and the Databricks docs. These are original practice questions, not real exam questions, and none of them come from practice sets that belong to a company or a training program. Recheck the exam guide two weeks before your exam in case it changes.
 
 Same cat, same two render modes as my [purr-folio](https://czekinah.github.io/).

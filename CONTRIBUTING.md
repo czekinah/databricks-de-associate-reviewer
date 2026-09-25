@@ -33,7 +33,7 @@ Add a line to `CARDS`:
 - Use the current product names: Lakeflow Jobs, Lakeflow Spark Declarative Pipelines, Git folders, Declarative Automation Bundles, SQL warehouses, Catalog Explorer.
 - Stick to the Associate exam guide. Professional exam topics belong in a different reviewer.
 - Every answer should be checkable in the Databricks docs. A docs link in your pull request helps a lot.
-- Don't paste questions from real exams or paid dumps.
+- Don't paste questions from real exams, paid dumps, or practice sets that belong to a company, a bootcamp or a training program. Write your own scenario and check the answer in the docs.
 
 ## Test locally
 
